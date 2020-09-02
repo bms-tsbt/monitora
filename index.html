@@ -8,7 +8,7 @@
   <script src="https://bms-tsbt.github.io/monitora/TinyDash/tinydash_editor.js"></script>
   <script src="https://bms-tsbt.github.io/monitora/tsbt.js"></script>  
   <script>
-    var bank= "TSBT";
+    var bank= "TSnn";
     var batt="0000";
     var data = [];
    // for (var i=0;i<100;i++) data.push(Math.cos(i/10));
@@ -48,7 +48,7 @@ function onLine(line) {
      //o.bt.setValue(j.Btn);
      o.bt.firstElementChild.innerText="Bateria: "+j.Btn
      o.bk.firstElementChild.innerText="Banco: "+j.Bkn
-     o.l.firstElementChild.innerText="TSBT  "+j.L
+     o.l.firstElementChild.innerText=j.TStype+"  "+j.L
                    
    } catch(e) {
      //o.log.log("e/o na leitura: "+e);
