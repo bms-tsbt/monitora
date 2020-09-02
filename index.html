@@ -9,7 +9,7 @@
   <script src="https://bms-tsbt.github.io/monitora/tsbt.js"></script>  
   <script>
     var bank= "TSnn";
-    var batt="0000";
+    var batt=0;
     var data = [];
    // for (var i=0;i<100;i++) data.push(Math.cos(i/10));
     var o = {
@@ -58,7 +58,7 @@ function onLine(line) {
  function connectDevice() {
    tsbt.connect(function(c) {
      if (!c) {
-       alert("Couldn't connect!");
+       alert("Desconectado");
        return;
      }
      connection = c;
