@@ -48,7 +48,7 @@ function onLine(line) {
      //o.bt.setValue(j.Btn);
      o.bt.firstElementChild.innerText="Bateria: "+j.Btn
      o.bk.firstElementChild.innerText="Banco: "+j.Bkn
-     o.l.firstElementChild.innerText=j.TStype+"  "+j.L
+     o.l.firstElementChild.innerText=(j.TStype?j.TStype:"TSBT")+"  "+j.L
                    
    } catch(e) {
      //o.log.log("e/o na leitura: "+e);
