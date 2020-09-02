@@ -13,7 +13,7 @@
     var data = [];
    // for (var i=0;i<100;i++) data.push(Math.cos(i/10));
     var o = {
-      l:TD.label({x:10,y:10,width:200,height:40,label:"TSBT CGO-KFV"}),
+      l:TD.label({x:10,y:10,width:200,height:40,label:"TSBT"}),
       bk:TD.label({x:10,y:60,width:200,height:40,label:"Banco: " + bank}),
       bt:TD.label({x:10,y:110,width:200,height:40,label:"Bateria: "+batt}),
       v:TD.gauge({x:220,y:10,width:200,height:210,label:"Tensão 2.5 a 4.5 V",value:"3.25",min:2.5,max:4.5,name:"gaugeV"}),
@@ -33,9 +33,6 @@
     
     for (var i in o) document.body.appendChild(o[i]);
 
-    o.l.contentEditable = "true";
-    o.bk.contentEditable = "true";
-    o.bt.contentEditable = "true";
 //TD.startEditor();
 
 function onLine(line) {
@@ -51,6 +48,7 @@ function onLine(line) {
      //o.bt.setValue(j.Btn);
      o.bt.firstElementChild.innerText="Bateria: "+j.Btn
      o.bk.firstElementChild.innerText="Banco: "+j.Bkn
+     o.l.firstElementChild.innerText="TSBT  "+j.local
                    
    } catch(e) {
      //o.log.log("e/o na leitura: "+e);
@@ -86,7 +84,7 @@ function onLine(line) {
          // Now tell it to write data on the current temperature level to Bluetooth
          // 10 times a second. Also ensure that when disconnected, tsbt.js
          // resets so the setInterval doesn't keep draining battery.
-         connection.write("int=setInterval(function(){Bluetooth.println(JSON.stringify({T:E.getTemperature(),V:getVin().toPrecision(2),Vb:Vbalance,Bkn:bankName,Btn:battName,L:local,isBal:isBalancing}));},10000);NRF.on('disconnect', function() {LED1.reset();clearInterval(int);});\n",
+         connection.write("int=setInterval(function(){Bluetooth.println(JSON.stringify({T:E.getTemperature(),V:mMR(getVin(),2),Vb:Vbalance,Bkn:bankName,Btn:battName,L:local,isBal:isBalancing}));},10000);NRF.on('disconnect', function() {LED1.reset();clearInterval(int);});\n",
            function() { console.log("Lido..."); });
          }, 1500);
        });
