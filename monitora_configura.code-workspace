@@ -5,6 +5,9 @@
 		},
 		{
 			"path": "..\\configura"
+		},
+		{
+			"path": "..\\..\\..\\Espruino\\scripts"
 		}
 	],
 	"settings": {}
