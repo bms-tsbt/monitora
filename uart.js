@@ -281,7 +281,7 @@
           callback();
         }).catch(function(error) {
           log(0,'SEND ERROR: ' + error);
-          closeSerial();
+          serialPort.close();
         });
         writer.releaseLock();
       };
