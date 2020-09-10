@@ -47,8 +47,8 @@ function onLine(line) {
      o.vs.firstElementChild.innerText="Balanceamento: "+j.Vb;
      //o.ab.setValue(j.isBal);
      //o.bt.setValue(j.Btn);
-     o.bt.firstElementChild.innerText="Bateria: "+j.Btn
-     o.bk.firstElementChild.innerText="Banco: "+j.Bkn
+     o.bt.firstElementChild.innerText="Bateria: "+j.TGname.substr(-5)
+     o.bk.firstElementChild.innerText="Banco: "+j.TGname.substr(0,4)
      o.l.firstElementChild.innerText=(j.TStype?j.TStype+" "+j.L:"TSBT "+j.L)
                    
    } catch(e) {
@@ -85,8 +85,7 @@ function onLine(line) {
          // Now tell it to write data on the current temperature level to Bluetooth
          // 10 times a second. Also ensure that when disconnected, tsbt.js
          // resets so the setInterval doesn't keep draining battery.
-         connection.write("int=setInterval(function(){Bluetooth.println(JSON.stringify({V:getVin(),T:E.getTemperature(),Vb:Vbalance,Bkn:bankName,Btn:battName,L:local,isBal:isBalancing,TStype:TStype,Vrs:version}));},2000);NRF.on('disconnect', function() {LED1.reset();clearInterval(int);});\n",
-           function() { console.log("Lido..."); });
+         connection.write("seekPrm()\n",  function() { console.log("Lido..."); });
          }, 1500);
        });
      });
