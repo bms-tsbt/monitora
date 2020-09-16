@@ -47,9 +47,9 @@ function onLine(line) {
      o.vs.firstElementChild.innerText="Balanceamento: "+j.Vb;
      //o.ab.setValue(j.isBal);
      //o.bt.setValue(j.Btn);
-     o.bt.firstElementChild.innerText="Bateria: "+j.TGn.substr(-5)
-     o.bk.firstElementChild.innerText="Banco: "+j.TGn.substr(0,4)
-     o.l.firstElementChild.innerText=(j.TStype?j.TStype+" "+j.L:"TSBT "+j.L)
+     o.bt.firstElementChild.innerText="Bateria: "+j.TGn.substr(-5);
+     o.bk.firstElementChild.innerText="Banco: "+j.TGn.substr(0,4);
+     o.l.firstElementChild.innerText= "versão "+j.Vrs;
                    
    } catch(e) {
      console.log(e);
